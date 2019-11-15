@@ -1,0 +1,13 @@
+%{
+#include "y.tab.h" 
+%}
+%%
+[a-zA-Z]|_ {return LETTER;}
+[0-9]+ {return DIGIT;}
+[\t] {;}
+\n {return 0;}
+. {return yytext[0];}
+%%
+yywrap(){}
+
+

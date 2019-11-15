@@ -1,0 +1,27 @@
+%{
+ #include<stdio.h>
+%}
+
+%token DIGIT LETTER
+
+%%
+stmt:A
+     ;
+    A: LETTER B
+     ;
+    B: LETTER B
+     | DIGIT B
+     | LETTER
+     | DIGIT
+     ;
+%%
+void main(){
+	printf("Enter String:");
+	yyparse();
+	printf("Valid \n");
+	exit(0);
+}
+void yyerror(){
+	printf("Invalid \n");
+	exit(0);
+}
